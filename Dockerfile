@@ -1,5 +1,4 @@
 FROM ubuntu:trusty
-MAINTAINER Alex Newman <alex@newman.pro>
 
 # Let the container know that there is no TTY
 ENV DEBIAN_FRONTEND noninteractive
@@ -29,14 +28,14 @@ RUN mkdir -p /osrm-build \
 
 WORKDIR /osrm-build
 
-RUN curl --silent -L https://github.com/Project-OSRM/osrm-backend/archive/v5.2.6.tar.gz -o v5.2.6.tar.gz \
- && tar xzf v5.2.6.tar.gz \
- && mv osrm-backend-5.2.6 /osrm-src \
+RUN curl --silent -L https://github.com/Project-OSRM/osrm-backend/archive/v5.3.3.tar.gz -o v5.3.3.tar.gz \
+ && tar xzf v5.3.3.tar.gz \
+ && mv osrm-backend-5.3.3 /osrm-src \
  && cmake /osrm-src \
  && make \
  && mv /osrm-src/profiles/car.lua profile.lua \
  && mv /osrm-src/profiles/lib/ lib \
- && echo "disk=/tmp/stxxl,25000,syscall" > .stxxl \
+ && echo "disk=/tmp/stxxl,250000,syscall" > .stxxl \
  && rm -rf /osrm-src
 
 # Cleanup --------------------------------
