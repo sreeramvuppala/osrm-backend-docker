@@ -37,7 +37,7 @@ Explanation:
 
 For example:  
 ```
-docker run -d -p 5000:5000 --name osrm-api cartography/osrm-backend-docker:latest osrm California "http://download.geofabrik.de/north-america/us/california-latest.osm.pbf"
+docker run -d -p 5000:5000 --name osrm-api cartography/osrm-backend-docker:latest osrm California ""http://download.geofabrik.de/north-america/us/connecticut-latest.osm.pbfnorth-america/us/california-latest.osm.pbf"
 ```
 
 ## Start OSRM Frontend

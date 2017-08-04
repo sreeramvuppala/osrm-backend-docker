@@ -16,7 +16,7 @@ if [ "$1" = 'osrm' ]; then
     ./osrm-contract $DATA_PATH/$2.osrm
   fi
 
-  ./osrm-routed $DATA_PATH/$2.osrm --max-matching-size 300 --max-table-size 8000 &
+  ./osrm-routed $DATA_PATH/$2.osrm --max-matching-size 300 --threads $4 --max-table-size 8000 &
   child=$!
   wait "$child"
 else
